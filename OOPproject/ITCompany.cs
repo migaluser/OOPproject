@@ -105,5 +105,14 @@ namespace OOPproject
         {
             return !(company1 == company2);
         }
+        public static bool operator >(ITCompany company1, ITCompany company2)
+        {
+            return company1.Budget > company2.Budget;
+        }
+
+        public static bool operator <(ITCompany company1, ITCompany company2)
+        {
+            return company1.Budget < company2.Budget;
+        }
     }
 }

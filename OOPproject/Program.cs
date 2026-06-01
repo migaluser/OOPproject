@@ -103,10 +103,45 @@ namespace OOPproject
 
             // 4. Організація олімпіади кластером (всередині методу NAVI виділить ще кошти)
             iTClusterz.OrganizeOlimpiad(university, iTCompany, 50000);
+            // ==================================================
+            // ВЕРСІЯ 4: Тестування перевантаження операторів
+            // ==================================================
+            Console.WriteLine("\n==================================================");
+            Console.WriteLine("Версія 4: Перевантаження операторів");
+            Console.WriteLine("==================================================");
 
+            // 1. Тестуємо унарний оператор ++ (Підвищення зарплати)
+            Console.WriteLine($"[Оператор ++] Зарплата спеціаліста {specialist.Name} до підвищення: {specialist.Salary}");
+            specialist++;
+            Console.WriteLine($"[Оператор ++] Зарплата після застосування 'specialist++': {specialist.Salary}");
+
+            // 2. Створюємо другу компанію
+            ITCompany gameCompany = new ITCompany(
+                "GSC Game World",
+                 800000.00,
+                 "Київ, Україна",
+                 true
+            );
+
+            // 3. Тестуємо бінарний оператор + (Злиття компаній)
+            ITCompany mergedCorp = iTCompany + gameCompany;
+            Console.WriteLine($"\n[Оператор +] Злиття компаній: {iTCompany.Name} та {gameCompany.Name}");
+            Console.WriteLine($"Результат злиття: {mergedCorp.Name}, Об'єднаний бюджет: {mergedCorp.Budget}");
+
+            // 4. Тестуємо оператори порівняння (==, !=, >, <)
+            Console.WriteLine($"\n[Оператор ==] Чи {iTCompany.Name} та {gameCompany.Name} це одна компанія? {iTCompany == gameCompany}");
+
+            if (iTCompany > gameCompany)
+            {
+                Console.WriteLine($"[Оператор >] Бюджет {iTCompany.Name} ({iTCompany.Budget}) БІЛЬШИЙ ніж у {gameCompany.Name} ({gameCompany.Budget})");
+            }
+            else
+            {
+                Console.WriteLine($"[Оператор <] Бюджет {iTCompany.Name} МЕНШИЙ або рівний {gameCompany.Name}");
+            }
             // 6. Фініш програми
             Console.WriteLine("\n==================================================");
-            Console.WriteLine("Фініш імітації Версії 3");
+            Console.WriteLine("Фініш імітації ");
             Console.ReadLine();
         }
     }
