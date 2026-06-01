@@ -8,5 +8,11 @@ namespace OOPproject
 {
     public class University
     {
+        public string Name { get; set; }
+        public string Location { get; set; }
+        public int Ranking { get; set; }
+        public double Tuition { get; set; }
+        public bool IsPublic { get; set; }
+
     }
 }

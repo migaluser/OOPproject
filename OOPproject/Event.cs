@@ -8,5 +8,6 @@ namespace OOPproject
 {
     public class Event
     {
+        public string Title { get; set; }
     }
 }
