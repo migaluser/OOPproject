@@ -32,5 +32,10 @@ namespace OOPproject
         {
             return Ranking > 0 && Ranking <= 100;
         }
+        public void ModernizeCurriculum(string newCourses)
+        {
+            Courses.Add(newCourses);
+            Console.WriteLine($"Curriculum at {Name} has been modernized with new course: {newCourses}");
+        }
     }
 }

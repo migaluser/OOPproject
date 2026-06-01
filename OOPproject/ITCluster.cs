@@ -35,5 +35,10 @@ namespace OOPproject
             Universities = universities;
             AnnualHackathon = annualHackathon;
         }
+        public void OrganizeOlimpiad( University hostUniversity, ITCompany sponsor, double prizeFund)
+        {
+            sponsor.ProvideFinancialSupport(hostUniversity, prizeFund);
+            Console.WriteLine($"Organizing IT Olympiad at {hostUniversity.Name} sponsored by {sponsor.Name} with a prize fund of {prizeFund}");
+        }
     }
 }

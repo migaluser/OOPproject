@@ -60,6 +60,17 @@ namespace OOPproject
         {
             return Budget >= requiredBudget;
         }
-
+        public void ProvideFinancialSupport(University university, double amount)
+        {
+            if (Budget >= amount)
+            {
+                Budget -= amount;
+                Console.WriteLine($"{Name} has provided financial support of {amount} to {university.Name}");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} does not have sufficient budget to provide financial support to {university.Name}");
+            }
+        }
     }
 }
