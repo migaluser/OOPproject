@@ -13,5 +13,19 @@ namespace OOPproject
         public double Salary { get; set; }
         public string Department { get; set; }
         public bool IsEmployed { get; set; }
+        private List<string> Skills { get; set; }
+        public Specialist()
+        {
+            Skills = new List<string>();
+        }
+        public Specialist(string name, string position, double salary, string department, bool isEmployed)
+        {
+            Name = name;
+            Position = position;
+            Salary = salary;
+            Department = department;
+            IsEmployed = isEmployed;
+            Skills = new List<string>();
+        }
     }
 }
