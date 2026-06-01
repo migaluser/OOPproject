@@ -20,42 +20,39 @@ namespace OOPproject
 
             // 2. Створення об'єктів університетів
             University university = new University
-            {
-                Name = "Київський національний університет імені Тараса Шевченка",
-                Location = "Київ, Україна",
-                Ranking = 1,
-                Tuition = 5000.00,
-                IsPublic = true
-            };
+            ( 
+                "Київський національний університет імені Тараса Шевченка",
+                 "Київ, Україна",
+                 1,
+                 5000.00,
+                 true
+            );
 
             University university2 = new University
-            {
-                Name = "Національний університет 'Львівська політехніка'",
-                Location = "Львів, Україна",
-                Ranking = 2,
-                Tuition = 4500.00,
-                IsPublic = true
-            };
+            ( 
+                "Національний університет 'Львівська політехніка'",
+                 "Львів, Україна",
+                 2,
+                4500.00,
+                true
+            );
 
             University university3 = new University
-            {
-                Name = "Харківський національний університет імені В. Н. Каразіна",
-                Location = "Харків, Україна",
-                Ranking = 3,
-                Tuition = 4000.00,
-                IsPublic = true
-            };
+            ( 
+                "Харківський національний університет імені В. Н. Каразіна",
+                 "Харків, Україна",
+                 3,
+                4000.00,
+               true
+            );
 
             // 3. Створення ІТ-компанії
-            ITCompany iTCompany = new ITCompany
-            {
-                Name = "NAVI",
-                Budget = 1000000.00,
-                Location = "Київ, Україна",
-                IsOperational = true,
-                Specialists = new List<Specialist>(),
-                University = university
-            };
+            ITCompany iTCompany = new ITCompany( 
+                "NAVI",
+                 1000000.00,
+                 "Київ, Україна",
+                 true
+            );
 
             // 4. Створення ІТ-спеціаліста
             Specialist specialist = new Specialist
@@ -80,6 +77,9 @@ namespace OOPproject
                     Title = "Щорічний Хакатон"
                 }
             };
+
+            Console.WriteLine($"Створено компанію: {iTCompany.Name} з бюджетом {iTCompany.Budget}");
+            Console.WriteLine($"Створено університет: {university.Name} з рейтингом {university.Ranking}");
 
             // 6. Фініш програми
             Console.WriteLine("==================================================");

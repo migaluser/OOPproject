@@ -10,7 +10,7 @@ namespace OOPproject
     {
         public static int CompanyCount { get; private set; }
         public string Name { get; set; }
-        public double Budget { get; set; }
+        public double Budget { get;private set; }
         public string Location { get; set; }
         public bool IsOperational { get; set; }
         public List<Specialist> Specialists { get; set; }
@@ -28,9 +28,9 @@ namespace OOPproject
         {
             Console.WriteLine($"{Name} is sponsoring the event: {eventInfo.Title}");
         }
-        public ITCompany()
+        public ITCompany(): this("Default Company", 0.0, "Unknown", false)
         {
-            Specialists = new List<Specialist>();
+            
         }
         public ITCompany(string name, double budget, string location, bool isOperational)
         {

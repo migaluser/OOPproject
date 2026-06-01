@@ -10,9 +10,10 @@ namespace OOPproject
     {
         public string Name { get; set; }
         public string Location { get; set; }
-        public int Ranking { get; set; }
+        public int Ranking { get;private set; }
         public double Tuition { get; set; }
         public bool IsPublic { get; set; }
+
         private List<string> Courses { get; set; } 
         public University()
         {
