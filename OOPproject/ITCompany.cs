@@ -46,5 +46,20 @@ namespace OOPproject
             CompanyCount = 0;
         }
 
+        public bool IsCompanySuccessful()
+        {
+            return IsOperational && Specialists.Count > 0 && University != null;
+        }
+
+        public bool IsCompanyInSameLocation(University university)
+        {
+            return Location == university.Location;
+        }
+
+        public bool IsCompanyBudgetSufficient(double requiredBudget)
+        {
+            return Budget >= requiredBudget;
+        }
+
     }
 }

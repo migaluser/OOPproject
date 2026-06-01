@@ -77,7 +77,8 @@ namespace OOPproject
                     Title = "Щорічний Хакатон"
                 }
             };
-
+            Console.WriteLine($"Чи має спеціаліст навичку 'C#'? {specialist.HasSkill("C#")}");
+            Console.WriteLine($"Створено ІТ-кластер з компанією {iTCompany.Name} та університетами: {string.Join(", ", iTClusterz.Universities.Select(u => u.Name))}");
             Console.WriteLine($"Створено компанію: {iTCompany.Name} з бюджетом {iTCompany.Budget}");
             Console.WriteLine($"Створено університет: {university.Name} з рейтингом {university.Ranking}");
 

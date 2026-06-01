@@ -36,5 +36,17 @@ namespace OOPproject
             IsEmployed = other.IsEmployed;
             Skills = new List<string>(other.Skills);
         }
+        public bool HasSkill(string skill)
+        {
+            return Skills.Contains(skill);
+        }
+         public void AddSkill(string skill)
+        {
+            if (!Skills.Contains(skill))
+            {
+                Skills.Add(skill);
+                Console.WriteLine($"{Name} has acquired a new skill: {skill}");
+            }
+        }
     }
 }

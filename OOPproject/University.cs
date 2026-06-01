@@ -28,5 +28,9 @@ namespace OOPproject
             IsPublic = isPublic;
             Courses = new List<string>();
         }
+        public bool IsUniversityHighlyRanked()
+        {
+            return Ranking > 0 && Ranking <= 100;
+        }
     }
 }
