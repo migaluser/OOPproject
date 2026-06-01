@@ -8,6 +8,7 @@ namespace OOPproject
 {
     public class ITCompany
     {
+        public static int CompanyCount { get; private set; }
         public string Name { get; set; }
         public double Budget { get; set; }
         public string Location { get; set; }
@@ -39,5 +40,11 @@ namespace OOPproject
             IsOperational = isOperational;
             Specialists = new List<Specialist>();
         }
+
+        static ITCompany()
+        {
+            CompanyCount = 0;
+        }
+
     }
 }

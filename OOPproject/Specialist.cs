@@ -27,5 +27,14 @@ namespace OOPproject
             IsEmployed = isEmployed;
             Skills = new List<string>();
         }
+        public Specialist(Specialist other)
+        {
+            Name = other.Name;
+            Position = other.Position;
+            Salary = other.Salary;
+            Department = other.Department;
+            IsEmployed = other.IsEmployed;
+            Skills = new List<string>(other.Skills);
+        }
     }
 }
