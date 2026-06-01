@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Event.cs" />
+    <Compile Include="IFundable.cs" />
     <Compile Include="ITCluster.cs" />
     <Compile Include="ITCompany.cs" />
     <Compile Include="Ministry.cs" />

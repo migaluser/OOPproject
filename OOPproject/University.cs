@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOPproject
 {
-    public class University : Organization
+    public class University : Organization, IFundable
     {
+        public double Funding { get; set; }
         public int Ranking { get;private set; }
         public double Tuition { get; set; }
         public bool IsPublic { get; set; }
@@ -36,6 +37,10 @@ namespace OOPproject
         public override void ConductActivity(string activity)
         {
             Console.WriteLine($"{Name} is conducting the activity: {activity}");
+        }
+        public void ApplyForFunding(double amount)
+        {
+            Console.WriteLine($"{Name} is applying for funding of {amount:C}");
         }
     }
 }

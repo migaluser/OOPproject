@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOPproject
 {
-    public class StartupProject
+    public class StartupProject : IFundable
     {
+
         public string Name { get; set; }
         public string Industry { get; set; }
         public double Funding { get; set; }
@@ -26,6 +27,10 @@ namespace OOPproject
                 Employees = employees;
                 IsSuccessful = isSuccessful;
                 Technologies = new List<string>();
+        }
+        public void ApplyForFunding(double amount)
+        {
+            Console.WriteLine($"{Name} is applying for funding of {amount:C}");
         }
     }
 }

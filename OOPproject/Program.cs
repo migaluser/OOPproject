@@ -139,6 +139,45 @@ namespace OOPproject
             {
                 Console.WriteLine($"[Оператор <] Бюджет {iTCompany.Name} МЕНШИЙ або рівний {gameCompany.Name}");
             }
+            // ==================================================
+            // ВЕРСІЯ 5: Успадкування, Абстракція та Інтерфейси
+            // ==================================================
+            Console.WriteLine("\n==================================================");
+            Console.WriteLine("Версія 5: Успадкування та Поліморфізм");
+            Console.WriteLine("==================================================");
+
+            // 1. Тестуємо абстрактний метод ConductActivity (через базовий клас Organization)
+            // Ми не можемо створити Organization, але можемо покласти компанію в змінну типу Organization!
+            Organization orgCompany = iTCompany;
+            Organization orgUniversity = university;
+
+            Console.WriteLine("[Абстрактний метод з базового класу]:");
+            orgCompany.ConductActivity("Розробка нового веб-сервісу");
+            orgUniversity.ConductActivity("Проведення лекції з архітектури ПЗ");
+
+            // 2. Створюємо стартап
+            StartupProject myStartup = new StartupProject(
+                "Eco-Tech AI",
+                "Green Energy",
+                15000.00,
+                5,
+                false
+            );
+
+            // 3. Тестуємо Інтерфейс IFundable (Поліморфізм)
+            // Створюємо список з інтерфейсів і кладемо туди абсолютно РІЗНІ класи!
+            List<IFundable> fundableProjects = new List<IFundable>
+            {
+                university, // Це Університет
+                myStartup   // А це Стартап
+            };
+
+            Console.WriteLine("\n[Робота через Інтерфейс IFundable]:");
+            foreach (IFundable item in fundableProjects)
+            {
+                // Програма сама розбереться, чий саме метод викликати
+                item.ApplyForFunding(50000.00);
+            }
             // 6. Фініш програми
             Console.WriteLine("\n==================================================");
             Console.WriteLine("Фініш імітації ");
