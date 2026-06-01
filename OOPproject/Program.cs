@@ -178,6 +178,51 @@ namespace OOPproject
                 // Програма сама розбереться, чий саме метод викликати
                 item.ApplyForFunding(50000.00);
             }
+            // ==================================================
+            // ВЕРСІЯ 6: Обробка виключних ситуацій (Exceptions)
+            // ==================================================
+            Console.WriteLine("\n==================================================");
+            Console.WriteLine("Версія 6: Обробка винятків (try-catch-finally)");
+            Console.WriteLine("==================================================");
+
+            // 1. Тестування кастомного винятку (InsufficientBudgetException)
+            Console.WriteLine("[Тест 1: Власний виняток - Нестача бюджету]");
+            try
+            {
+                // Намагаємося змусити NAVI проспонсорувати 5 мільйонів (а в них лише 1 млн)
+                Console.WriteLine("Спроба перерахувати 5 000 000...");
+                iTCompany.ProvideFinancialSupport(university, 5000000.00);
+            }
+            catch (InsufficientBudgetException ex)
+            {
+                // Ловимо нашу власну помилку і виводимо червоним кольором (за бажанням)
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[СПІЙМАНО ПОМИЛКУ]: {ex.Message}");
+                Console.ResetColor();
+            }
+
+            // 2. Тестування стандартного винятку (Вихід за межі списку)
+            Console.WriteLine("\n[Тест 2: Стандартний виняток - Вихід за межі масиву/списку]");
+            try
+            {
+                // Намагаємося отримати 100-го працівника, хоча в нас є лише один (з індексом 0)
+                Console.WriteLine("Спроба знайти працівника під номером 100...");
+                Specialist ghostDev = iTCompany.GetSpecialistByIndex(100);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                // Ловимо стандартну помилку C#
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[СПІЙМАНО ПОМИЛКУ]: Такого працівника не існує. Деталі: {ex.Message}");
+                Console.ResetColor();
+            }
+            finally
+            {
+                // Блок finally виконується ЗАВЖДИ, незалежно від того, була помилка чи ні
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\n[Блок Finally]: Перевірка критичних ситуацій завершена. Система працює стабільно!");
+                Console.ResetColor();
+            }
             // 6. Фініш програми
             Console.WriteLine("\n==================================================");
             Console.WriteLine("Фініш імітації ");

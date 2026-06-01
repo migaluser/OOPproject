@@ -65,7 +65,7 @@ namespace OOPproject
             }
             else
             {
-                Console.WriteLine($"{Name} does not have sufficient budget to provide financial support to {university.Name}");
+                throw new InsufficientBudgetException($"Помилка фінансування: у компанії {Name} недостатньо коштів! Потрібно: {amount}, в наявності: {Budget}");
             }
         }
         public static ITCompany operator +(ITCompany company1, ITCompany company2)
@@ -122,5 +122,6 @@ namespace OOPproject
             }
             return false;
         }
+        public Specialist GetSpecialistByIndex(int index) { return this.Specialists[index];}
     }
 }
