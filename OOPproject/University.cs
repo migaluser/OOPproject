@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace OOPproject
 {
-    public class University
+    public class University : Organization
     {
-        public string Name { get; set; }
-        public string Location { get; set; }
         public int Ranking { get;private set; }
         public double Tuition { get; set; }
         public bool IsPublic { get; set; }
@@ -19,10 +17,8 @@ namespace OOPproject
         {
             Courses = new List<string>();
         }
-        public University(string name, string location, int ranking, double tuition, bool isPublic)
+        public University(string name, string location, int ranking, double tuition, bool isPublic) : base(name, location, 0, 0.0, false)
         {
-            Name = name;
-            Location = location;
             Ranking = ranking;
             Tuition = tuition;
             IsPublic = isPublic;
@@ -36,6 +32,10 @@ namespace OOPproject
         {
             Courses.Add(newCourses);
             Console.WriteLine($"Curriculum at {Name} has been modernized with new course: {newCourses}");
+        }
+        public override void ConductActivity(string activity)
+        {
+            Console.WriteLine($"{Name} is conducting the activity: {activity}");
         }
     }
 }

@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOPproject
 {
-    public class ITCompany
+    public class ITCompany : Organization
     {
         public static int CompanyCount { get; private set; }
-        public string Name { get; set; }
-        public double Budget { get;private set; }
-        public string Location { get; set; }
         public bool IsOperational { get; set; }
         public List<Specialist> Specialists { get; set; }
         public University University { get; set; }
@@ -32,13 +29,12 @@ namespace OOPproject
         {
             
         }
-        public ITCompany(string name, double budget, string location, bool isOperational)
+        public ITCompany(string name, double budget, string location, bool isOperational) : base(name, location, 0, budget, false)
         {
-            Name = name;
-            Budget = budget;
-            Location = location;
-            IsOperational = isOperational;
             Specialists = new List<Specialist>();
+            University = null;
+            IsOperational = isOperational;
+            CompanyCount++;
         }
 
         static ITCompany()
@@ -113,6 +109,18 @@ namespace OOPproject
         public static bool operator <(ITCompany company1, ITCompany company2)
         {
             return company1.Budget < company2.Budget;
+        }
+        public override void ConductActivity(string activity)
+        {
+            Console.WriteLine($"{Name} is conducting activity: {activity}");
+        }
+         public override bool Equals(object obj)
+        {
+            if (obj is ITCompany otherCompany)
+            {
+                return this == otherCompany;
+            }
+            return false;
         }
     }
 }
