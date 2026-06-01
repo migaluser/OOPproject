@@ -48,5 +48,11 @@ namespace OOPproject
                 Console.WriteLine($"{Name} has acquired a new skill: {skill}");
             }
         }
+        
+        public static Specialist operator ++(Specialist s)
+        {
+            s.Salary += 500.00; // Додаємо 500 доларів до зарплати
+            return s;
+        }
     }
 }
