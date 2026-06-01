@@ -10,17 +10,18 @@ namespace OOPproject
     {
         static void Main(string[] args)
         {
-            // 1. Обов'язковий текстовий вивід за вимогами завдання
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.InputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("==================================================");
             Console.WriteLine("Любка Михайло, курс 1, група ІПЗ-11");
             Console.WriteLine("варіант завдання - 13");
-            Console.WriteLine("Версія 1");
+            Console.WriteLine("Версія 1 та 2");
             Console.WriteLine("Старт імітації");
             Console.WriteLine("==================================================");
 
             // 2. Створення об'єктів університетів
             University university = new University
-            ( 
+            (
                 "Київський національний університет імені Тараса Шевченка",
                  "Київ, Україна",
                  1,
@@ -29,7 +30,7 @@ namespace OOPproject
             );
 
             University university2 = new University
-            ( 
+            (
                 "Національний університет 'Львівська політехніка'",
                  "Львів, Україна",
                  2,
@@ -38,7 +39,7 @@ namespace OOPproject
             );
 
             University university3 = new University
-            ( 
+            (
                 "Харківський національний університет імені В. Н. Каразіна",
                  "Харків, Україна",
                  3,
@@ -47,12 +48,13 @@ namespace OOPproject
             );
 
             // 3. Створення ІТ-компанії
-            ITCompany iTCompany = new ITCompany( 
+            ITCompany iTCompany = new ITCompany(
                 "NAVI",
                  1000000.00,
                  "Київ, Україна",
                  true
             );
+            iTCompany.University = university;
 
             // 4. Створення ІТ-спеціаліста
             Specialist specialist = new Specialist
@@ -77,15 +79,35 @@ namespace OOPproject
                     Title = "Щорічний Хакатон"
                 }
             };
+
             Console.WriteLine($"Чи має спеціаліст навичку 'C#'? {specialist.HasSkill("C#")}");
             Console.WriteLine($"Створено ІТ-кластер з компанією {iTCompany.Name} та університетами: {string.Join(", ", iTClusterz.Universities.Select(u => u.Name))}");
             Console.WriteLine($"Створено компанію: {iTCompany.Name} з бюджетом {iTCompany.Budget}");
             Console.WriteLine($"Створено університет: {university.Name} з рейтингом {university.Ranking}");
 
-            // 6. Фініш програми
+            // ==================================================
+            // ВЕРСІЯ 3: Тестування бізнес-процесів та взаємодії
+            // ==================================================
+            Console.WriteLine("\n==================================================");
+            Console.WriteLine("Версія 3: Бізнес-процеси та взаємодія об'єктів");
             Console.WriteLine("==================================================");
-            Console.WriteLine("Фініш імітації");
-            Console.ReadLine(); 
+
+            // 1. Модернізація навчальної програми
+            university.ModernizeCurriculum("Основи бекенд-розробки на C# та .NET");
+
+            // 2. Фінансова підтримка від компанії (успішна, бюджету вистачає)
+            iTCompany.ProvideFinancialSupport(university, 150000);
+
+            // 3. Фінансова підтримка (неуспішна, перевищує наявний бюджет компанії)
+            iTCompany.ProvideFinancialSupport(university, 2000000);
+
+            // 4. Організація олімпіади кластером (всередині методу NAVI виділить ще кошти)
+            iTClusterz.OrganizeOlimpiad(university, iTCompany, 50000);
+
+            // 6. Фініш програми
+            Console.WriteLine("\n==================================================");
+            Console.WriteLine("Фініш імітації Версії 3");
+            Console.ReadLine();
         }
     }
 }
